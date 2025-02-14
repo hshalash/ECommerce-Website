@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { WishContext } from "../../Context/WishContext";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../Loading/Loading";
@@ -8,15 +8,11 @@ import { CartContext } from "../../Context/CartContext";
 export default function Wishlist() {
   let { getWishlist, removeItemFromWishlist } = useContext(WishContext);
   let { addToCart } = useContext(CartContext);
-
-  const [wishlistDetails, setWishlistDetails] = useState(null);
-
   async function addProduct(productId) {
     try {
       let response = await addToCart(productId);
       if (response?.status == "success") {
         console.log("added");
-        setWishlistDetails(response);
       }
       console.log(response);
     } catch (error) {
@@ -29,7 +25,6 @@ export default function Wishlist() {
       let response = await removeItemFromWishlist(productId);
       if (response?.status === 200) {
         console.log("removed");
-        setWishlistDetails(response);
         getWishlist();
       }
       console.log(response);
