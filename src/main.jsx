@@ -10,6 +10,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import CartContextProvider from "./Context/CartContext.jsx";
 import WishContextProvider from "./Context/WishContext.jsx";
 import OrderContextProvider from "./Context/OrderContext.jsx";
+import "flowbite/dist/flowbite.min.js";
 
 let query = new QueryClient();
 
