@@ -5,6 +5,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import { useEffect } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { IoPersonSharp } from "react-icons/io5";
+import logo from "../../assets/freshcart-logo.svg";
 
 export default function Navbar() {
   const { isLogin, setToken } = useContext(UserContext);
@@ -42,7 +43,7 @@ export default function Navbar() {
           <div>
             <Link to={"/"}>
               <img
-                src="/src/assets/freshcart-logo.svg"
+                src={logo}
                 className="h-8 ms-8"
                 alt="Freshcart Logo"
               />

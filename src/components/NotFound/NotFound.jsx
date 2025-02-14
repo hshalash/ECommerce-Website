@@ -1,11 +1,10 @@
-// import { useEffect, useState } from "react";
-// import axios from "axios";
-// import Style from "../Templates/NotFound.module.css";
+import errorIcon from "../../assets/error.svg"
+
 
 export default function NotFound() {
   return (
     <>
-      <img src="/src/assets/error.svg" alt="error 404" className="mx-auto pt-30" />
+      <img src={errorIcon} alt="error 404" className="mx-auto pt-30" />
     </>
   )
 }
