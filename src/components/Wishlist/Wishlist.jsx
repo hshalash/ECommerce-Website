@@ -9,14 +9,14 @@ export default function Wishlist() {
   let { getWishlist, removeItemFromWishlist } = useContext(WishContext);
   let { addToCart } = useContext(CartContext);
 
-  const [wishlistDetails, setWishlistDetails] = useState(null)
+  const [wishlistDetails, setWishlistDetails] = useState(null);
 
   async function addProduct(productId) {
     try {
       let response = await addToCart(productId);
       if (response?.status == "success") {
         console.log("added");
-        setWishlistDetails(response)
+        setWishlistDetails(response);
       }
       console.log(response);
     } catch (error) {
@@ -29,7 +29,7 @@ export default function Wishlist() {
       let response = await removeItemFromWishlist(productId);
       if (response?.status === 200) {
         console.log("removed");
-        setWishlistDetails(response)
+        setWishlistDetails(response);
         getWishlist();
       }
       console.log(response);
@@ -61,7 +61,11 @@ export default function Wishlist() {
         <h2 className="text-center mb-15 text-4xl">My Wishlist</h2>
 
         {/* Show Loading */}
-        {isLoading && <Loading />}
+        {isLoading && (
+          <div className=" text-6xl text-green-600">
+            <Loading />
+          </div>
+        )}
 
         {/* Show Error */}
         {isError && (
