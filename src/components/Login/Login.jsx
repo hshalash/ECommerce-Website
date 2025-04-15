@@ -61,6 +61,10 @@ export default function Login() {
   return (
     <>
       <h2 className="pt-32 text-center text-4xl">Log In</h2>
+      <p className="text-center mt-5 font-thin">
+        New here? <br></br>Please {<Link to="/Register" className="underline underline-offset-2 hover:text-green-400">create a user</Link>} to
+        access the website and explore its features.
+      </p>
 
       <form className="pt-10 max-w-md mx-auto" onSubmit={formik.handleSubmit}>
         {errorMsg && (
@@ -147,8 +151,14 @@ export default function Login() {
             "Login"
           )}
         </button>
-        {<Link to="/Forgot" className="block mt-2 text-green-700 hover:underline">Forgot your password?</Link>}
-
+        {
+          <Link
+            to="/Forgot"
+            className="block mt-2 text-green-700 hover:underline"
+          >
+            Forgot your password?
+          </Link>
+        }
       </form>
     </>
   );
