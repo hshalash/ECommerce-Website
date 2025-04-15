@@ -78,9 +78,7 @@ export default function Register() {
     rePassword: Yup.string()
       .required("Confirm your password")
       .oneOf([Yup.ref("password")], "Passwords must match"),
-    phone: Yup.string()
-      .required("Phone number is required")
-      .matches(/^01[0125][0-9]{8}$/, "Invalid Egyptian number"),
+    
   });
 
   const initialValues = {
@@ -88,7 +86,7 @@ export default function Register() {
     email: "",
     password: "",
     rePassword: "",
-    phone: "",
+
   };
 
   const formik = useFormik({
@@ -239,32 +237,7 @@ export default function Register() {
           )}
         </div>
 
-        <div className="relative z-0 w-full mb-5 group">
-          <input
-            value={formik.values.phone}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            type="text"
-            name="phone"
-            id="phone"
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-green-600 peer"
-            placeholder=" "
-          />
-          <label
-            htmlFor="phone"
-            className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-green-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Phone
-          </label>
-          {formik.touched.phone && (
-            <div
-              className="mt-1 mb-1 text-sm text-red-800 rounded-lg"
-              role="alert"
-            >
-              <span className="font-medium">{formik.errors.phone}</span>
-            </div>
-          )}
-        </div>
+     
 
         <button
           type="submit"
