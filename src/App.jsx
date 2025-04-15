@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import "./index.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -20,93 +20,30 @@ import ProductDetails from "./components/ProductDetails/ProductDetails";
 import AllOrders from "./components/AllOrders/AllOrders";
 
 export default function App() {
-
-
-  const router = createBrowserRouter([
-    {
-      path: "",
-      element: <Layout />,
-      children: [
-        {
-          index: true,
-          element: (
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          ),
-        },
-        {
-          path: "cart",
-          element: (
-            <ProtectedRoute>
-              <Cart />
-            </ProtectedRoute>
-          ),
-        },
-        {
-          path: "wishlist",
-          element: (
-            <ProtectedRoute>
-              <Wishlist />
-            </ProtectedRoute>
-          ),
-        },
-        {
-          path: "products",
-          element: (
-            <ProtectedRoute>
-              <Products />
-            </ProtectedRoute>
-          ),
-        },
-        {
-          path: "productdetails/:id",
-          element: (
-            <ProtectedRoute>
-              <ProductDetails />
-            </ProtectedRoute>
-          ),
-        },
-        {
-          path: "categories",
-          element: (
-            <ProtectedRoute>
-              <Categories />
-            </ProtectedRoute>
-          ),
-        },
-        {
-          path: "brands",
-          element: (
-            <ProtectedRoute>
-              <Brands />
-            </ProtectedRoute>
-          ),
-        },
-        {
-          path: "allorders",
-          element: (
-            <ProtectedRoute>
-              <AllOrders />
-            </ProtectedRoute>
-          ),
-        },
-        { path: "register", element: <Register /> },
-        { path: "login", element: <Login /> },
-        { path: "reset", element: <ResetPassword /> },
-        { path: "forgot", element: <ForgotPassword /> },
-        { path: "verify", element: <VerifyCode /> },
-        { path: "*", element: <NotFound /> },
-      ],
-    },
-  ]);
-
   return (
     <>
-    
-        <RouterProvider router={router} />
-        <ToastContainer />
-    
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<ProtectedRoute><Home/></ProtectedRoute>}/>
+            <Route path="cart" element ={<ProtectedRoute><Cart/></ProtectedRoute>}/>
+            <Route path="wishlist" element ={<ProtectedRoute><Wishlist/></ProtectedRoute>}/>
+            <Route path="products" element ={<ProtectedRoute><Products/></ProtectedRoute>}/>
+            <Route path="categories" element ={<ProtectedRoute><Categories/></ProtectedRoute>}/>
+            <Route path="brands" element ={<ProtectedRoute><Brands/></ProtectedRoute>}/>
+            <Route path="allorders" element ={<ProtectedRoute><AllOrders/></ProtectedRoute>}/>
+            <Route path="productdetails/:id" element ={<ProtectedRoute><ProductDetails/></ProtectedRoute>}/>
+            <Route path="register" element ={<Register/>}/>
+            <Route path="login" element ={<Login/>}/>
+            <Route path="reset" element ={<ResetPassword/>}/>
+            <Route path="forgot" element ={<ForgotPassword/>}/>
+            <Route path="verify" element ={<VerifyCode/>}/>
+            <Route path="*" element ={<NotFound/>}/>
+          </Route>
+        </Routes>
+      </HashRouter>
+
+      <ToastContainer />
     </>
   );
 }
