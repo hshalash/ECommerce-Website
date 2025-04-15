@@ -2,7 +2,7 @@
   "name": "ecommerceproject",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://hshalash.github.io/Ecommerce/",
+  "homepage": "https://hshalash.github.io/ECommerce-Website/",
   "type": "module",
   "scripts": {
     "dev": "vite",
