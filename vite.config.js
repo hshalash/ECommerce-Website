@@ -14,5 +14,5 @@
         },
       },
     },
-    base: "/ECommerce-website/",
+    base: "/ECommerce-Website",
   });
